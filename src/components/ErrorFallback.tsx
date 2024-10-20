@@ -10,13 +10,15 @@ const Container = styled.div`
 `;
 
 export type ErrorFallbackProps = {
+  code: string;
   onRetry: () => void;
 };
 
-export const ErrorFallback = ({ onRetry }: ErrorFallbackProps) => {
+export const ErrorFallback = ({ code, onRetry }: ErrorFallbackProps) => {
   return (
     <Container>
       <div>Something went wrong. Please try again later</div>
+      {code && <div>{`[${code}]`}</div>}
       <div style={{ marginTop: 16 }}>
         <button onClick={() => onRetry()}>Retry</button>
       </div>

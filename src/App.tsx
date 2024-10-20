@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Panel1 } from "./components/Panel1";
 import { Panel2 } from "./components/Panel2";
 import { ErrorBoundary } from "./components/ErrorBoundary";
+import { FatalErrorScreen } from "./components/FatalErrorScreen";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -21,7 +22,7 @@ const Container = styled.div`
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <ErrorBoundary fallback={<div style={{ padding: 16 }}>Fatal error</div>}>
+      <ErrorBoundary fallback={<FatalErrorScreen />}>
         <Container>
           <Panel1 />
           <Panel2 />

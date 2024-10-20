@@ -4,7 +4,7 @@ import { ErrorFallback } from "./ErrorFallback";
 const Contents = () => {
   const { data, error, isLoading, refetch } = useGetUser("unknown");
   if (error) {
-    return <ErrorFallback onRetry={() => refetch()} />;
+    return <ErrorFallback code={"18100"} onRetry={() => refetch()} />;
   } else if (isLoading) {
     return <div>Loading...</div>;
   }
